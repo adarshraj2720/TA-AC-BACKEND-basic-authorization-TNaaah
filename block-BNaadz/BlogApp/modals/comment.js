@@ -10,7 +10,8 @@ var commentSchema = new Schema({
     likes:{type:Number,default:0},
     articlesId:[{type:Schema.Types.ObjectId,ref:"Articel"}],
     slug:{type:String,slug:"title"},
-    articelSlug:{type:String}
+    articelSlug:{type:String},
+    //loggedUserID : {type :Schema.Types.ObjectId ,ref:'User', required : true} 
     
 },
 {
