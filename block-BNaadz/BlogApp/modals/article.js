@@ -10,6 +10,7 @@ var articleSchema = new Schema({
     likes:{type:Number,default:0},
     commentsId:[{type:Schema.Types.ObjectId,ref:"Comment"}],
     author:{type:String},
+    //authorname :[{type :Schema.Types.ObjectId ,ref :"User" ,required : true}],
     slug:{type:String,slug:"title"},
 
 },
