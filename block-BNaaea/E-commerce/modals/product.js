@@ -10,6 +10,7 @@ var productSchema = new schema({
     price :{type : Number },
     commentID :[{type : schema.Types.ObjectId, ref :"Comment"}] ,
     slug: { type: String, slug: "title" },
+    image:{type:String}
    
 })
 

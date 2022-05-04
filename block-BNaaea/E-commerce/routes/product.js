@@ -5,6 +5,25 @@ var User = require('../modals/user')
 var Product = require('../modals/product')
 
 var auth = require('../middlewares/auth')
+var path = require('path')
+
+var multer = require('multer');
+// const { path } = require('../app');
+
+var pathfile = path.join(__dirname,'../uploadimage')
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, pathfile)
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+    cb(null, file.fieldname + '-' + uniqueSuffix)
+  }
+})
+
+const upload = multer({ storage: storage })
+
 
 //add product
 router.get('/new' ,(req ,res ,next) => {
@@ -21,8 +40,11 @@ router.get('/new' ,(req ,res ,next) => {
 
 })
 
-router.post('/' ,(req ,res) => {
+router.post('/' ,upload.single('image'),(req ,res) => {
+  req.body.image = req.file.filename;
     Product.create(req.body ,(err ,product) => {
+     
+      console.log(req.file.filename)
       console.log(err ,product)
       res.redirect('/product/new')
     })
