@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% if(user.isAdmin){%>
+        <a href="/users/logout"><button>LOGOUT</button></a>
+        <h2>Admin DashBoard</h2>
+        <h3>Admin Name <%=user.name%></h3>
+        <%podcast.forEach((pod)=>{ %>
+            <p>Title : <%=pod.title%></p>
+            <p>Artists : <%=pod.artists%></p>
+            <p>Song : <%=pod.song%></p>
+            <p>PodcastPlan : <%=pod.podcastplan%></p>
+            <a href="/podcast/<%=pod.id%>/delete">DELETE</a>
+            <a href="/podcast/<%=pod.id%>/edit">EDIT</a>
+        <%})%>
+        <%} else if(!user.isAdmin){%>
+            <a href="/users/logout"><button>LOGOUT</button></a>
+            <h2>Admin DashBoard</h2>
+            <h3>Admin Name <%=user.name%></h3>
+            <%podcast.forEach((pod)=>{ %>
+                <p>Title : <%=pod.title%></p>
+                <p>Artists : <%=pod.artists%></p>
+                <p>Song : <%=pod.song%></p>
+                <p>PodcastPlan : <%=pod.podcastplan%></p>
+                <!-- <a href="/podcast/<%=pod.id%>/like">LIKE</a>
+                <a href="/podcast/<%=pod.id%>/dislike">DISLIKE</a> -->
+            <%})%>
+
+        <%}%>
+</body>
+</html>
