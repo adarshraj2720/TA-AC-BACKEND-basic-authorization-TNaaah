@@ -136,3 +136,33 @@ p{
 .green{
   background-color: green;
 }
+
+small{
+  text-align: center;
+  display: block;
+  color: black;
+  font-size: 14px;
+  font-weight: 800;
+  margin: 20px 0px;
+}
+
+.social-login{
+  display: flex;
+  justify-content: space-around;
+  
+}
+.social-login-btn{
+  border: 1px solid silver;
+  text-decoration: none;
+  padding: 4px;
+}
+.google{
+  color: red;
+  font-size: 12px;
+  font-weight: 800;
+}
+.github{
+  color: black;
+  font-size: 12px;
+  font-weight: 800;
+}

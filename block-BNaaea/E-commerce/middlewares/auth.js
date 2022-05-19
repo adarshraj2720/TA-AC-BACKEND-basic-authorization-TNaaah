@@ -12,19 +12,27 @@ module.exports={
 
     },
     userInfo:(req,res,next)=>{
-        var userId = req.session && req.session.userID;
-        if(userId){
-            User.findById(userId,'name email isAdmin',(err,user)=>{
-                if(err) return next(err);
-                req.user = user;
-                res.locals.user = user;
-                next();
-            })
-        }else{
-            req.user = null;
-            res.locals.user = null;
-            next();
+        if(req.user){
+            let user = req.user;
+            res.locals.user = user;
+            return next()
         }
+        if(!req.user){
+            var userId = req.session && req.session.userID;
+           
+                User.findById(userId,'name email isAdmin',(err,user)=>{
+                    if(err) return next(err);
+                    req.user = user;
+                    res.locals.user = user;
+                    next();
+                })
+            }else{
+                req.user = null;
+                res.locals.user = null;
+                next();
+            }
+        
+       
     },
     isAdmin : (req ,res ,next ) => {
         var isAdmin = req.user.isAdmin;
