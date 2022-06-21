@@ -17,7 +17,7 @@
         <a class="user" href="">Hii <%=user.name%></a>
           <a class="logout" href="/users/logout">SIGN OUT</a>
           <a class="logout" href="/users/">USERS</a>
-         <%} else if(!isAdmin) {%> 
+         <%} else if(isAdmin==false) {%> 
             <a class="user" href="">Hii <%=user.name%></a>
             <a class="logout" href="/users/logout">SIGN OUT</a>
        <%  } %>

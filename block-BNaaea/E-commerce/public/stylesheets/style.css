@@ -60,6 +60,7 @@ figure{
 img{
   height: 550px;
 }
+
 h2{
   text-align: center;
 }
@@ -88,15 +89,14 @@ input{
 }
 .products{
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 
 }
-/* .a{
-  display: flex;
-  flex-wrap: wrap;
-} */
+
 .product{
   position: relative;
-  margin-bottom: 50px;
+
 }
 
 .like , .dislike{
@@ -166,3 +166,5 @@ small{
   font-size: 12px;
   font-weight: 800;
 }
+
+

@@ -61,8 +61,10 @@ if(password.length < 4){
       if(user.isAdmin === true) {
        return res.redirect('/product/new')
       }  
-      if(user.isAdmin === false) {
+      if(user.isAdmin === false && user.isBlocked===false) {
         return res.redirect('/product')
+      }else{
+        return res.redirect('/users/login')
       }
 
     })
@@ -78,7 +80,8 @@ if(password.length < 4){
 router.get('/:id/block',(req ,res) => {
   var userId = req.params.id;
   User.findByIdAndUpdate(userId ,{$set :{isBlocked : true}} ,(err ,blockUser) => {
-    
+    console.log(blockUser,"block")
+    res.redirect('/users')
   })
 })
 
@@ -86,7 +89,8 @@ router.get('/:id/block',(req ,res) => {
 router.get('/:id/Unblock' ,(req ,res) => {
   var userId = req.params.id;
   User.findByIdAndUpdate(userId ,{$set :{isBlocked :false}} ,(err ,unblockUser) => {
-  
+    console.log(unblockUser,"unblock")
+    res.redirect('/users')
   })
 })
 

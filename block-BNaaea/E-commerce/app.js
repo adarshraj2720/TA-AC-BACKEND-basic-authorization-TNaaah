@@ -21,6 +21,8 @@ require('./modules/passport')
 var app = express();
 
 
+// mongodb://127.0.0.1:27017/e-commerce"
+
 // connect to mb
 mongoose.connect("mongodb://127.0.0.1:27017/e-commerce" ,(err) => {
     console.log(err ? err :"Connected to databases")
