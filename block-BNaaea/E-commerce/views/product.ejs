@@ -16,11 +16,11 @@
             <strong>SHOPPER STOP</strong>
         </a>
         <nav>
-            <% if(isAdmin){%>
+            <% if(user.isAdmin){%>
                 <a class="user" href="">Hii <%=user.name%></a>
                 <a class="logout" href="/users/logout">SIGN OUT</a>
                 <a class="logout" href="/users/">USERS</a>
-                <%} else if(!isAdmin) {%>
+                <%} else {%>
                     <a class="user" href="">Hii <%=user.name%></a>
 
                     <a class="logout" href="/users/logout"><i class="fas fa-heart"></i></a>
@@ -43,7 +43,7 @@
                 </p>
                 <p>Like: <%=product.likes%>
                 </p>
-                <% if(isAdmin){ %>
+                <% if(user.isAdmin){ %>
                     <div class="cart-section">
                         <a href="/product/<%=product.id%>/edit"><button class="edit"><i
                                     class="fas fa-user-edit">EDIT</i></button></a>
@@ -51,7 +51,7 @@
                                     class="far fa-trash-alt"></i></button></a>
 
                     </div>
-                    <% } else if(isAdmin==false){ %>
+                    <% } else if(user.isAdmin==false){ %>
                         <a href="/product/<%=product.id%>/like"><i class="fas fa-thumbs-up like"></i></a>
                         <a href="/product/<%=product.id%>/dislike"><i class="fas fa-thumbs-down dislike"></i></a>
                         <div class="cart-section">
