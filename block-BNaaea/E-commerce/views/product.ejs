@@ -6,27 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/cbd72baf56.js" crossorigin="anonymous"></script>
-        <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
     <title>Document</title>
 </head>
 
 <body>
     <header>
         <a href="/">
-          <strong>SHOPPER STOP</strong>
+            <strong>SHOPPER STOP</strong>
         </a>
         <nav>
             <% if(isAdmin){%>
-        <a class="user" href="">Hii <%=user.name%></a>
-          <a class="logout" href="/users/logout">SIGN OUT</a>
-          <a class="logout" href="/users/">USERS</a>
-         <%} else if(!isAdmin) {%> 
-            <a class="user" href="">Hii <%=user.name%></a>
-            
-            <a class="logout" href="/users/logout"><i class="fas fa-heart"></i></a>
-            <a class="logout" href="/users/logout"><i class="fas fa-shopping-cart"></i></a>
-            <a class="logout" href="/users/logout">SIGN OUT</a>
-       <%  } %>
+                <a class="user" href="">Hii <%=user.name%></a>
+                <a class="logout" href="/users/logout">SIGN OUT</a>
+                <a class="logout" href="/users/">USERS</a>
+                <%} else if(!isAdmin) {%>
+                    <a class="user" href="">Hii <%=user.name%></a>
+
+                    <a class="logout" href="/users/logout"><i class="fas fa-heart"></i></a>
+                    <a class="logout" href="/users/logout"><i class="fas fa-shopping-cart"></i></a>
+                    <a class="logout" href="/users/logout">SIGN OUT</a>
+                    <% } %>
         </nav>
     </header>
 
@@ -34,10 +34,7 @@
     <section class="products">
         <%products.forEach((product)=>{ %>
             <div class="product">
-              
-                    <img src="/<%=product.image%>" alt="Image" width="300px">
-             
-              
+                <img src="/<%=product.image%>" alt="Image">
                 <p>Title: <%=product.title%>
                 </p>
                 <p>Quantity: <%=product.quantity%>
@@ -48,28 +45,26 @@
                 </p>
                 <% if(isAdmin){ %>
                     <div class="cart-section">
-                    <a href="/product/<%=product.id%>/delete"><button  class="edit"><i class="far fa-trash-alt"></i></button></a>
-                    <a href="/product/<%=product.id%>/edit"><button class="edit"><i class="fas fa-user-edit">EDIT</i></button></a>
-                        </div>
-                <% } else if(!isAdmin){ %> 
-  
+                        <a href="/product/<%=product.id%>/edit"><button class="edit"><i
+                                    class="fas fa-user-edit">EDIT</i></button></a>
+                        <a href="/product/<%=product.id%>/delete"><button class="edit"><i
+                                    class="far fa-trash-alt"></i></button></a>
+
+                    </div>
+                    <% } else if(isAdmin==false){ %>
                         <a href="/product/<%=product.id%>/like"><i class="fas fa-thumbs-up like"></i></a>
                         <a href="/product/<%=product.id%>/dislike"><i class="fas fa-thumbs-down dislike"></i></a>
-                   
-
-                    <div class="cart-section">
-                <a href="/product/<%=product.id%>/cart"><button class="cart"><i class="fas fa-shopping-cart"></i></button></a>
-                <a href="/product/<%=product.id%>/whishlist"><button class="cart"><i class="fas fa-heart"></i></button></a>
-                </div>
-                    <%}%>
-                <%})%>
-
-                <!-- <% if(isAdmin){%>
-                    <a href="/users"><button>Users</button></a>
-                <% }  { %> -->
-                 
+                        <div class="cart-section">
+                            <a href="/product/<%=product.id%>/cart"><button class="cart"><i
+                                        class="fas fa-shopping-cart"></i></button></a>
+                            <a href="/product/<%=product.id%>/whishlist"><button class="cart"><i
+                                        class="fas fa-heart"></i></button></a>
+                        </div>
+                        <%}%>
             </div>
-        <% } %>  
+            <%})%>
+
+
     </section>
 
 </body>
