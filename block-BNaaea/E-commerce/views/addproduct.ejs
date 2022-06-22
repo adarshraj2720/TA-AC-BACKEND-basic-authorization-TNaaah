@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Product</title>
+</head>
+<body>
+    <header>
+        <a href="/">
+          <strong>SHOPPER STOP</strong>
+        </a>
+        <nav>
+        <a class="user" href="">Hii <%=user.name%></a>
+        <a class="logout" href="/product">PRODUCTS</a>
+          <a class="logout" href="/users/logout">SIGN OUT</a>
+         
+        </nav>
+    </header>
+    <h2>Add Product To The SHOPPER STOP</h2>
+    <form action="/product" method="POST" enctype="multipart/form-data">
+  
+        <input type="text" name="title" id="title" placeholder="Title">
+        <input type="file" name="image" id="image">
+        <input type="text" name="quantity" id="quantity" placeholder="Qunatity">
+        <input type="text" name="price" id="price" placeholder="Price">
+        <button class="submit" type="submit">Add</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <a href="/">
+          <strong>SHOPPER STOP</strong>
+        </a>
+        <nav>
+            <a href="/users/register">SIGN IN  /</a>
+          <a href="/users/logout">SIGN OUT</a>
+        </nav>
+    </header>
+    <h2> LOG IN TO SHOPPER STOP</h2>
+    <form action="/users/login" method="POST">
+        <input type="text" name="email" id="email" placeholder="Email">
+        <input type="password" name="password" id="password" placeholder="Password">
+        <button class="submit" type="submit">LOGIN</button>
+
+        <small>Or login with</small>
+        <div class="social-login">
+            <a class="social-login-btn google" href="/auth/google">LOG in With Google</a><br>
+            <a class="social-login-btn github" href="/auth/github">LOG in With Github</a>
+        </div>
+    </form>
+</body>
+</html>
