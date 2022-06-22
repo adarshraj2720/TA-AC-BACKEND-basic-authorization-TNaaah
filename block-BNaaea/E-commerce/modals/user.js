@@ -8,7 +8,7 @@ var userSchema = new schema({
     password :{type : String ,minlength : 5 , required : true} ,
     city:{type : String },
     isAdmin:{type : Boolean},
-    isBlocked:{type:Boolean},
+    isBlocked:{type:Boolean,default:false},
 } )
 
 
